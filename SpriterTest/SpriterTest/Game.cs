@@ -22,11 +22,13 @@ namespace SpriterTest
         SpriterDrawer drawer;
         SpriterLoader loader1;
         SpriterPlayer player1;
+        private KeyboardState oldState;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            oldState = new KeyboardState();
         }
 
         /// <summary>
@@ -58,10 +60,11 @@ namespace SpriterTest
             loader1 = new SpriterLoader(this);
             player1 = new SpriterPlayer(Spriter.getSpriter("monster/basic.scml", loader1), 0, loader1);
             player1.update(0, 0);
-            player1.setAnimation("idle", 0, 0);
+            //player1.setAnimation("idle", 0, 0);
 
             this.drawer = new SpriterDrawer(this.graphics);
             this.drawer.batch = this.spriteBatch;
+            this.drawer.loader = this.loader1;
         }
 
         /// <summary>
@@ -85,8 +88,21 @@ namespace SpriterTest
             // Ermöglicht ein Beenden des Spiels
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            KeyboardState newState = Keyboard.GetState();
+
+            // Is the SPACE key down?
+            if (newState.IsKeyDown(Keys.Space))
+            {
+            }
+            else if (oldState.IsKeyDown(Keys.Space))
+            {
+                this.player1.setAnimatioIndex((player1.getAnimationIndex() + 1) % player1.getEntity().getAnimation().size(), 1, 10);
+            }
+
+            oldState = newState;
 
             this.player1.update(this.graphics.PreferredBackBufferWidth/2, -this.graphics.PreferredBackBufferHeight/2);
+            this.player1.calcBoundingBox(null);
 
             // TODO: Fügen Sie Ihre Aktualisierungslogik hier hinzu
 

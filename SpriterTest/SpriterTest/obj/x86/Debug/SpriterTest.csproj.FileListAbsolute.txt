@@ -21,3 +21,4 @@ C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\SpriterTest\
 C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\SpriterTest\SpriterTest\bin\x86\Debug\IKVM.OpenJDK.Misc.dll
 C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\SpriterTest\SpriterTest\obj\x86\Debug\SpriterTest.exe
 C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\SpriterTest\SpriterTest\obj\x86\Debug\SpriterTest.pdb
+C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\SpriterTest\SpriterTest\bin\x86\Debug\spriter.dll

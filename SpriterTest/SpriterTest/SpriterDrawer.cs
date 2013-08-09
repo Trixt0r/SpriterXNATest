@@ -17,6 +17,7 @@ namespace SpriterTest
         public GraphicsDeviceManager graphics;
         public SpriteBatch batch;
         private Texture2D blank;
+        private Color color;
 
         public SpriterDrawer(SpriterLoader loader, GraphicsDeviceManager graphics) 
             : base(loader)
@@ -24,6 +25,7 @@ namespace SpriterTest
             this.graphics = graphics;
             this.blank = new Texture2D(graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             this.blank.SetData(new[] { Color.White });
+            this.color = new Color(1, 1, 1, 1);
         }
 
         public SpriterDrawer(GraphicsDeviceManager graphics)
@@ -41,12 +43,6 @@ namespace SpriterTest
             draw(instruction.getRef(), instruction.getX(), instruction.getY(), instruction.getPivotX(),
                 instruction.getPivotY(), instruction.getScaleX(), instruction.getScaleY(), instruction.getAngle(),
                 instruction.getAlpha());
-        }
-
-        public override void draw(SpriterAbstractPlayer player)
-        {
-            this.loader = player.loader;
-            base.draw(player);
         }
 
         private void draw(Reference reference, float x, float y, float pivotX, float pivotY, float scaleX, float scaleY,
@@ -67,26 +63,22 @@ namespace SpriterTest
             return (float)(Math.PI * angle / 180.0);
         }
 
-        public void debugDraw(SpriterAbstractPlayer player)
+        protected override void drawLine(float x1, float y1, float x2, float y2)
         {
-		    for(int i = 0; i < player.getRuntimeBones().Length; i++){
-			    SpriterBone bone =  player.getRuntimeBones()[i];
-                DrawLine(new Vector2(bone.getX(), -bone.getY()),
-                    new Vector2(bone.getX() + (float)Math.Cos(DegreeToRadian(-bone.getAngle())) * 200 * bone.getScaleX(),
-                        -bone.getY() + (float)Math.Sin(DegreeToRadian(-bone.getAngle())) * 200 * bone.getScaleX()), this.CreateColorColor(i));
-		    }
-            DrawRectangle(player.getBoundingBox().left, -player.getBoundingBox().top, player.getBoundingBox().right, -player.getBoundingBox().bottom, Color.White);
-		
-		    for(int j = 0; j< player.getObjectsToDraw(); j++){
-                SpriterPoint[] points = player.getRuntimeObjects()[j].getBoundingBox();
+            this.DrawLine(new Vector2(x1, -y1), new Vector2(x2, -y2));
+        }
 
-                DrawLine(new Vector2(points[0].x, -points[0].y), new Vector2(points[1].x, -points[1].y), this.CreateColorColor(j));
-                DrawLine(new Vector2(points[1].x, -points[1].y), new Vector2(points[3].x, -points[3].y), this.CreateColorColor(j));
-                DrawLine(new Vector2(points[3].x, -points[3].y), new Vector2(points[2].x, -points[2].y), this.CreateColorColor(j));
-                DrawLine(new Vector2(points[2].x, -points[2].y), new Vector2(points[0].x, -points[0].y), this.CreateColorColor(j));
-		    }
+        protected override void drawRectangle(float x, float y, float width, float height)
+        {
+            this.DrawRectangle(x, -y, x + width, -y - height);
+        }
 
-            }
+        protected override void setDrawColor(float r, float g, float b, float a)
+        {
+            this.color = new Color(r, g, b, a);
+        }
+
+
 
         void DrawLine(SpriteBatch batch, Texture2D blank, float width, Color color, Vector2 point1, Vector2 point2)
         {
@@ -100,7 +92,7 @@ namespace SpriterTest
 
         void DrawLine(Vector2 point1, Vector2 point2)
         {
-            this.DrawLine(this.batch, this.blank, 1f, Color.White, point1, point2);
+            this.DrawLine(this.batch, this.blank, 1f, this.color, point1, point2);
         }
 
         void DrawLine(Vector2 point1, Vector2 point2, Color color)
@@ -122,21 +114,6 @@ namespace SpriterTest
             this.DrawLine(new Vector2(right, top), new Vector2(right, bottom), color);
             this.DrawLine(new Vector2(right, bottom), new Vector2(left, bottom), color);
             this.DrawLine(new Vector2(left, top), new Vector2(left, bottom), color);
-        }
-
-        private Color CreateColorColor(int i)
-        {
-            switch (i % 8)
-            {
-                case 0: return Color.White;
-                case 1: return Color.Red;
-                case 2: return Color.Blue;
-                case 3: return Color.Yellow;
-                case 4: return Color.Violet;
-                case 5: return Color.Green;
-                case 6: return Color.LightCyan;
-                default: return Color.Black;
-            }
         }
     }
 }
