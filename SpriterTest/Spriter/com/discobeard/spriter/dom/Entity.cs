@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -28,8 +29,7 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class Entity
 	{
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.Animation
-			> animation;
+		protected internal IList<Animation> animation;
 
 		protected internal int id;
 
@@ -58,13 +58,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="Animation"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.Animation
-			> getAnimation()
+		public virtual IList<Animation> getAnimation()
 		{
 			if (animation == null)
 			{
-				animation = new System.Collections.Generic.List<com.discobeard.spriter.dom.Animation
-					>();
+				animation = new List<Animation>();
 			}
 			return this.animation;
 		}

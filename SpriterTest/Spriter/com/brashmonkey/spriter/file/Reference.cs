@@ -13,9 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.file
+namespace Com.Brashmonkey.Spriter.file
 {
 	/// <summary>A Reference is an object which holds a loaded sprite.</summary>
 	/// <remarks>A Reference is an object which holds a loaded sprite.</remarks>
@@ -30,7 +30,7 @@ namespace com.brashmonkey.spriter.file
 
 		public string fileName;
 
-		public com.brashmonkey.spriter.SpriterRectangle dimensions;
+		public Com.Brashmonkey.Spriter.SpriterRectangle dimensions;
 
 		public float pivotX;
 
@@ -65,12 +65,12 @@ namespace com.brashmonkey.spriter.file
 
 		public override bool Equals(object @ref)
 		{
-			if (!(@ref is com.brashmonkey.spriter.file.Reference))
+			if (!(@ref is Com.Brashmonkey.Spriter.file.Reference))
 			{
 				return false;
 			}
 			//return ((Reference)ref).file == this.file && ((Reference)ref).folder == this.folder;
-			return ((com.brashmonkey.spriter.file.Reference)@ref).GetHashCode() == this.GetHashCode
+			return ((Com.Brashmonkey.Spriter.file.Reference)@ref).GetHashCode() == this.GetHashCode
 				();
 		}
 	}

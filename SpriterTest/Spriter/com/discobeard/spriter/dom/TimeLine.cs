@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -28,8 +29,7 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class TimeLine
 	{
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.Key
-			> key;
+		protected internal IList<Key> key;
 
 		protected internal int id;
 
@@ -58,12 +58,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="Key"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.Key> getKey
-			()
+		public virtual IList<Key> getKey()
 		{
 			if (key == null)
 			{
-				key = new System.Collections.Generic.List<com.discobeard.spriter.dom.Key>();
+				key = new List<Key>();
 			}
 			return this.key;
 		}

@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.objects;
+
+using Com.Brashmonkey.Spriter.objects;
 using System.Collections.Generic;
-namespace com.brashmonkey.spriter.animation
+namespace Com.Brashmonkey.Spriter.animation
 {
 	public class SpriterAnimation
 	{

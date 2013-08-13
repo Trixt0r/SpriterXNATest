@@ -13,9 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.objects
+namespace Com.Brashmonkey.Spriter.objects
 {
 	/// <summary>A SpriterAbstractObject is, as the name says, an abstract object which holds the same properties a #SpriterObject and a #SpriterBone have.
 	/// 	</summary>

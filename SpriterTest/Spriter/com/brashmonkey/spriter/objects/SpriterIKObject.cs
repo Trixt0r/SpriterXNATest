@@ -13,11 +13,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.objects
+namespace Com.Brashmonkey.Spriter.objects
 {
-	public class SpriterIKObject : com.brashmonkey.spriter.objects.SpriterAbstractObject
+	public class SpriterIKObject : Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
 	{
 		public int chainLength;
 

@@ -14,9 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.animation;
-using com.brashmonkey.spriter.objects;namespace com.brashmonkey.spriter
+
+using Com.Brashmonkey.Spriter.animation;
+using Com.Brashmonkey.Spriter.objects;
+using System.Collections.Generic;
+namespace Com.Brashmonkey.Spriter
 {
 	/// <summary>
 	/// This class provides the
@@ -24,11 +26,11 @@ using com.brashmonkey.spriter.objects;namespace com.brashmonkey.spriter
 	/// 	">generateKeyFramePool(com.discobeard.spriter.dom.SpriterData, com.discobeard.spriter.dom.Entity)
 	/// 	</see>
 	/// method to generate all necessary data which
-	/// <see cref="com.brashmonkey.spriter.player.SpriterPlayer">com.brashmonkey.spriter.player.SpriterPlayer
+	/// <see cref="Com.Brashmonkey.Spriter.player.SpriterPlayer">Com.Brashmonkey.Spriter.player.SpriterPlayer
 	/// 	</see>
 	/// needs to animate.
 	/// It is highly recommended to call this method only once for a SCML file since
-	/// <see cref="com.brashmonkey.spriter.player.SpriterPlayer">com.brashmonkey.spriter.player.SpriterPlayer
+	/// <see cref="Com.Brashmonkey.Spriter.player.SpriterPlayer">Com.Brashmonkey.Spriter.player.SpriterPlayer
 	/// 	</see>
 	/// does not modify the data you pass through the
 	/// constructor and also to save memory.
@@ -41,16 +43,16 @@ using com.brashmonkey.spriter.objects;namespace com.brashmonkey.spriter
 		/// 	</remarks>
 		/// <param name="spriterData">SpriterData to generate from.</param>
 		/// <returns>generated keyframe list.</returns>
-		public static System.Collections.Generic.IList<SpriterAnimation
+		public static IList<SpriterAnimation
 			> generateKeyFramePool(com.discobeard.spriter.dom.SpriterData data, com.discobeard.spriter.dom.Entity
 			 entity)
 		{
-			System.Collections.Generic.IList<SpriterAnimation
-				> spriterAnimations = new System.Collections.Generic.List<SpriterAnimation
+			IList<SpriterAnimation
+				> spriterAnimations = new List<SpriterAnimation
 				>();
-			System.Collections.Generic.IList<com.discobeard.spriter.dom.Animation> animations
+			IList<com.discobeard.spriter.dom.Animation> animations
 				 = entity.getAnimation();
-			com.brashmonkey.spriter.mergers.SpriterAnimationBuilder frameBuilder = new com.brashmonkey.spriter.mergers.SpriterAnimationBuilder
+			Com.Brashmonkey.Spriter.mergers.SpriterAnimationBuilder frameBuilder = new Com.Brashmonkey.Spriter.mergers.SpriterAnimationBuilder
 				();
 			foreach (com.discobeard.spriter.dom.Animation anim in animations)
 			{
@@ -80,10 +82,10 @@ using com.brashmonkey.spriter.objects;namespace com.brashmonkey.spriter
 						foreach (SpriterObject @object in key.getObjects(
 							))
 						{
-							com.brashmonkey.spriter.file.Reference @ref = @object.getRef();
+							Com.Brashmonkey.Spriter.file.Reference @ref = @object.getRef();
 							com.discobeard.spriter.dom.File f = data.getFolder()[@ref.folder].getFile()[@ref.
 								file];
-							@ref.dimensions = new com.brashmonkey.spriter.SpriterRectangle(0, f.getHeight(), 
+							@ref.dimensions = new Com.Brashmonkey.Spriter.SpriterRectangle(0, f.getHeight(), 
 								f.getWidth(), 0f);
 							if (bone.getId() == @object.getParentId())
 							{

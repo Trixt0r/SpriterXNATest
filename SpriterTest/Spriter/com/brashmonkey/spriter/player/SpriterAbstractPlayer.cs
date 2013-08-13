@@ -13,16 +13,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 using System.Collections.Generic;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter;
-using com.brashmonkey.spriter.animation;
-using com.brashmonkey.spriter.draw;
-using com.brashmonkey.spriter.interpolation;
-using com.brashmonkey.spriter.file;
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter;
+using Com.Brashmonkey.Spriter.animation;
+using Com.Brashmonkey.Spriter.draw;
+using Com.Brashmonkey.Spriter.interpolation;
+using Com.Brashmonkey.Spriter.file;
 
-namespace com.brashmonkey.spriter.player
+namespace Com.Brashmonkey.Spriter.player
 {
 	/// <summary>SpriterAbstractPlayer is meant to be a base for SpriterPlayer.</summary>
 	/// <remarks>

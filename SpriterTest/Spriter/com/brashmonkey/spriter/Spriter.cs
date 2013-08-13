@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.file;
-using com.brashmonkey.spriter.xml;
+
+using Com.Brashmonkey.Spriter.file;
+using Com.Brashmonkey.Spriter.xml;
 using com.discobeard.spriter.dom;
 
-namespace com.brashmonkey.spriter
+namespace Com.Brashmonkey.Spriter
 {
 	/// <summary>This class reads an scml file and loads all necessary resources.</summary>
 	/// <remarks>This class reads an scml file and loads all necessary resources.</remarks>
@@ -38,24 +38,16 @@ namespace com.brashmonkey.spriter
 
 		public readonly FileLoader loader;
 
-		public readonly java.io.File scmlFile;
+        public readonly string scmlPath;
 
 		public readonly SpriterData spriterData;
 
 		public Spriter(string scmlPath, FileLoader loader)
 		{
-			this.scmlFile = new java.io.File(scmlPath);
-			this.spriterData = com.brashmonkey.spriter.xml.SCMLReader.load(scmlPath);
+            this.scmlPath = scmlPath;
+			this.spriterData = Com.Brashmonkey.Spriter.xml.SCMLReader.load(scmlPath);
 			this.loader = loader;
 			loadResources();
-		}
-
-		public Spriter(SpriterData spriterData, FileLoader loader, java.io.File scmlFile)
-		{
-			this.scmlFile = scmlFile;
-			this.spriterData = spriterData;
-			this.loader = loader;
-			this.loadResources();
 		}
 
 		private void loadResources()
@@ -68,12 +60,12 @@ namespace com.brashmonkey.spriter
 					string fileName = spriterData.getFolder()[folder].getFile()[file].getName();
 					Reference @ref = new Reference
 						(folder, file, folderName, fileName);
-					@ref.dimensions = new com.brashmonkey.spriter.SpriterRectangle(0, spriterData.getFolder
+					@ref.dimensions = new SpriterRectangle(0, spriterData.getFolder
 						()[folder].getFile()[file].getHeight(), spriterData.getFolder()[folder].getFile(
 						)[file].getWidth(), 0);
 					@ref.pivotX = spriterData.getFolder()[folder].getFile()[file].getPivotX();
 					@ref.pivotY = spriterData.getFolder()[folder].getFile()[file].getPivotY();
-					loader.load(@ref, scmlFile.getParent() + "/" + fileName);
+					loader.load(@ref, System.IO.Directory.GetParent(this.scmlPath) + "/" + fileName);
 				}
 			}
 			this.loader.finishLoading();

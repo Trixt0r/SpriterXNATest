@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
 
-namespace com.brashmonkey.spriter
+
+namespace Com.Brashmonkey.Spriter
 {
 	/// <summary>
 	/// A class which provides methods to calculate Spriter specific issues,
@@ -75,8 +75,8 @@ namespace com.brashmonkey.spriter
 		/// <remarks>Rotates the given child around the given parent.</remarks>
 		/// <param name="parent"></param>
 		/// <param name="child"></param>
-		public static void translateRelative(com.brashmonkey.spriter.objects.SpriterAbstractObject
-			 parent, com.brashmonkey.spriter.objects.SpriterAbstractObject child)
+		public static void translateRelative(Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
+			 parent, Com.Brashmonkey.Spriter.objects.SpriterAbstractObject child)
 		{
 			translateRelative(parent, child.getX(), child.getY(), child);
 		}
@@ -87,8 +87,8 @@ namespace com.brashmonkey.spriter
 		/// <param name="x"></param>
 		/// <param name="y"></param>
 		/// <param name="target">save new position in</param>
-		public static void translateRelative(com.brashmonkey.spriter.objects.SpriterAbstractObject
-			 parent, float x, float y, com.brashmonkey.spriter.objects.SpriterAbstractObject
+		public static void translateRelative(Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
+			 parent, float x, float y, Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
 			 target)
 		{
 			float px = x * (parent.getScaleX());
@@ -103,14 +103,14 @@ namespace com.brashmonkey.spriter
 			target.setY(ynew);
 		}
 
-		public static void reTranslateRelative(com.brashmonkey.spriter.objects.SpriterAbstractObject
-			 parent, com.brashmonkey.spriter.objects.SpriterAbstractObject child)
+		public static void reTranslateRelative(Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
+			 parent, Com.Brashmonkey.Spriter.objects.SpriterAbstractObject child)
 		{
 			reTranslateRelative(parent, child.getX(), child.getY(), child);
 		}
 
-		public static void reTranslateRelative(com.brashmonkey.spriter.objects.SpriterAbstractObject
-			 parent, float x, float y, com.brashmonkey.spriter.objects.SpriterAbstractObject
+		public static void reTranslateRelative(Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
+			 parent, float x, float y, Com.Brashmonkey.Spriter.objects.SpriterAbstractObject
 			 target)
 		{
 			target.setAngle(target.getAngle() - parent.getAngle());

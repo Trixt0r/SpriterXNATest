@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
 using System.Collections.Generic;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter.animation;
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter.animation;
 using com.discobeard.spriter.dom;
 
-namespace com.brashmonkey.spriter.mergers
+namespace Com.Brashmonkey.Spriter.mergers
 {
     public class SpriterAnimationBuilder
     {
@@ -34,7 +33,7 @@ namespace com.brashmonkey.spriter.mergers
 
         internal Dictionary<SpriterObject, int> objectsToTween;
 
-        //import com.brashmonkey.spriter.converters.SpriterObjectConverter;
+        //import Com.Brashmonkey.Spriter.converters.SpriterObjectConverter;
         //import AnimationObject;
         //final private SpriterObjectConverter objectConverter = new SpriterObjectConverter();
         public virtual SpriterAnimation buildAnimation(
@@ -99,10 +98,12 @@ namespace com.brashmonkey.spriter.mergers
                     }
                 }
                 //}
-                frame.setObjects(Sharpen.Collections.ToArray(tempObjects, new SpriterObject
-                    [tempObjects.Count]));
-                frame.setBones(Sharpen.Collections.ToArray(tempBones, new SpriterBone
-                    [tempBones.Count]));
+                SpriterObject[] objArray = new SpriterObject[tempObjects.Count];
+                tempObjects.CopyTo(objArray,0);
+                frame.setObjects(objArray);
+                SpriterBone[] boneArray = new SpriterBone[tempBones.Count];
+                tempBones.CopyTo(boneArray, 0);
+                frame.setBones(boneArray);
                 spriterAnimation.frames.Add(frame);
             }
             this.tweenBones(spriterAnimation);
@@ -110,15 +111,12 @@ namespace com.brashmonkey.spriter.mergers
             return spriterAnimation;
         }
 
-        public virtual void tweenBones(SpriterAnimation
-             animation)
+        public virtual void tweenBones(SpriterAnimation  animation)
         {
-            foreach (KeyValuePair<SpriterBone
-                , int> entry in bonesToTween.EntrySet())
+            foreach (SpriterBone key in bonesToTween.Keys)
             {
-                SpriterBone toTween = entry.Key;
-                SpriterKeyFrame frame = animation.frames[entry.
-                    Value];
+                SpriterBone toTween = key;
+                SpriterKeyFrame frame = animation.frames[bonesToTween[key]];
                 long time = frame.getTime();
                 SpriterKeyFrame currentFrame = animation.getPreviousFrameForBone
                     (toTween, time);
@@ -143,15 +141,12 @@ namespace com.brashmonkey.spriter.mergers
             }
         }
 
-        public virtual void tweenObjects(SpriterAnimation
-             animation)
+        public virtual void tweenObjects(SpriterAnimation  animation)
         {
-            foreach (KeyValuePair<SpriterObject
-                , int> entry in objectsToTween.EntrySet())
+            foreach (SpriterObject key in objectsToTween.Keys)
             {
-                SpriterObject toTween = entry.Key;
-                SpriterKeyFrame frame = animation.frames[entry.
-                    Value];
+                SpriterObject toTween = key;
+                SpriterKeyFrame frame = animation.frames[objectsToTween[key]];
                 long time = frame.getTime();
                 SpriterKeyFrame currentFrame = animation.getPreviousFrameForObject
                     (toTween, time);
@@ -216,29 +211,29 @@ namespace com.brashmonkey.spriter.mergers
 
         /// <summary>
         /// See
-        /// <see cref="com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
-        /// 	">com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+        /// <see cref="Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+        /// 	">Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
         /// 	</see>
         /// Can be inherited, to handle other interpolation techniques. Standard is linear interpolation.
         /// </summary>
         protected internal virtual float interpolate(float a, float b, float timeA, float
              timeB, float currentTime)
         {
-            return com.brashmonkey.spriter.interpolation.SpriterLinearInterpolator.interpolator
+            return Com.Brashmonkey.Spriter.interpolation.SpriterLinearInterpolator.interpolator
                 .interpolate(a, b, timeA, timeB, currentTime);
         }
 
         /// <summary>
         /// See
-        /// <see cref="com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
-        /// 	">com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+        /// <see cref="Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+        /// 	">Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
         /// 	</see>
         /// Can be inherited, to handle other interpolation techniques. Standard is linear interpolation.
         /// </summary>
         protected internal virtual float interpolateAngle(float a, float b, float timeA,
             float timeB, float currentTime)
         {
-            return com.brashmonkey.spriter.interpolation.SpriterLinearInterpolator.interpolator
+            return Com.Brashmonkey.Spriter.interpolation.SpriterLinearInterpolator.interpolator
                 .interpolateAngle(a, b, timeA, timeB, currentTime);
         }
     }

@@ -1,5 +1,0 @@
-C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\bin\ICSharpCode.SharpZipLib.xml
-C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\bin\ICSharpCode.SharpZipLib.dll
-C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\bin\ICSharpCode.SharpZipLib.pdb
-C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\ICSharp\obj\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Heinrich\Documents\Visual Studio 2010\Projects\SpriterTest\ICSharp\obj\Debug\ICSharpCode.SharpZipLib.pdb

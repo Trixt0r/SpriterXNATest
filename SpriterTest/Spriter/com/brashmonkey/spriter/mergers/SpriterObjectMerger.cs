@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.discobeard.spriter.dom;
-using com.brashmonkey.spriter.objects;
 
-namespace com.brashmonkey.spriter.mergers
+using com.discobeard.spriter.dom;
+using Com.Brashmonkey.Spriter.objects;
+
+namespace Com.Brashmonkey.Spriter.mergers
 {
-	public class SpriterObjectMerger : com.brashmonkey.spriter.mergers.ISpriterMerger
+	public class SpriterObjectMerger : Com.Brashmonkey.Spriter.mergers.ISpriterMerger
 		<AnimationObjectRef, Key, 
 		SpriterObject>
 	{
@@ -33,18 +33,18 @@ namespace com.brashmonkey.spriter.mergers
             spriterObject.setId(@ref.getId());
             spriterObject.setParentId(@ref.getParent());
             spriterObject.setTimeline(@ref.getTimeline());
-            spriterObject.setAngle(obj.getAngle().floatValue());
-            spriterObject.setRef(new com.brashmonkey.spriter.file.Reference(obj.getFolder(),
+            spriterObject.setAngle(obj.getAngle());
+            spriterObject.setRef(new Com.Brashmonkey.Spriter.file.Reference(obj.getFolder(),
                 obj.getFile()));
-            spriterObject.setPivotX(obj.getPivotX().floatValue());
-            spriterObject.setPivotY(obj.getPivotY().floatValue());
-            spriterObject.setX(obj.getX().floatValue());
-            spriterObject.setY(obj.getY().floatValue());
+            spriterObject.setPivotX(obj.getPivotX());
+            spriterObject.setPivotY(obj.getPivotY());
+            spriterObject.setX(obj.getX());
+            spriterObject.setY(obj.getY());
             spriterObject.setZIndex(@ref.getZIndex());
             spriterObject.setSpin(key.getSpin());
-            spriterObject.setAlpha(obj.getA().floatValue());
-            spriterObject.setScaleX(obj.getScaleX().floatValue());
-            spriterObject.setScaleY(obj.getScaleY().floatValue());
+            spriterObject.setAlpha(obj.getA());
+            spriterObject.setScaleX(obj.getScaleX());
+            spriterObject.setScaleY(obj.getScaleY());
 			return spriterObject;
 		}
 	}

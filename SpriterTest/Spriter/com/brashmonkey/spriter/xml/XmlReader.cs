@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 using System.IO;
 
-namespace com.brashmonkey.spriter.xml
+namespace Com.Brashmonkey.Spriter.xml
 {
     public class XmlReader
     {

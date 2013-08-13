@@ -14,11 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
+
 using System;
 using System.Collections.Generic;
+using Com.Brashmonkey.Spriter;
 
-namespace com.brashmonkey.spriter.objects
+namespace Com.Brashmonkey.Spriter.objects
 {
 	/// <summary>A SpriterBone is a bone like in the Spriter editor.</summary>
 	/// <remarks>A SpriterBone is a bone like in the Spriter editor. It can hold children (#SpriterObject and #SpriterBone) which get manipulated relative to this object.
@@ -30,13 +31,13 @@ namespace com.brashmonkey.spriter.objects
 
         internal List<SpriterObject> childObjects;
 
-		public com.brashmonkey.spriter.SpriterRectangle boundingBox;
+		public SpriterRectangle boundingBox;
 
 		public SpriterBone()
 		{
 			this.childBones = new List<SpriterBone>();
             this.childObjects = new List<SpriterObject>();
-			this.boundingBox = new com.brashmonkey.spriter.SpriterRectangle(0, 0, 0, 0);
+			this.boundingBox = new Com.Brashmonkey.Spriter.SpriterRectangle(0, 0, 0, 0);
 		}
 
 		public virtual void addChildBone(SpriterBone bone
@@ -76,13 +77,13 @@ namespace com.brashmonkey.spriter.objects
 			((SpriterBone)bone).childObjects = this.childObjects;
 		}
 
-		public virtual void calcBoundingBox(com.brashmonkey.spriter.SpriterRectangle @base
+		public virtual void calcBoundingBox(Com.Brashmonkey.Spriter.SpriterRectangle @base
 			)
 		{
 			this.boundingBox.set(@base);
 			foreach (SpriterObject @object in this.childObjects)
 			{
-				com.brashmonkey.spriter.SpriterPoint[] points = @object.getBoundingBox();
+				Com.Brashmonkey.Spriter.SpriterPoint[] points = @object.getBoundingBox();
 				this.boundingBox.left = Math.Min(Math.Min(Math.Min(Math
 					.Min(points[0].x, points[1].x), points[2].x), points[3].x), this.boundingBox.left
 					);

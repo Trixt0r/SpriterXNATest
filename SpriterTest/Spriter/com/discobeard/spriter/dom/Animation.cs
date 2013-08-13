@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -31,10 +32,9 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class Animation
 	{
-		protected internal com.discobeard.spriter.dom.MainLine mainline;
+		protected internal MainLine mainline;
 
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.TimeLine
-			> timeline;
+		protected internal IList<TimeLine> timeline;
 
 		protected internal int id;
 
@@ -56,7 +56,7 @@ namespace com.discobeard.spriter.dom
 		/// possible object is
 		/// <see cref="MainLine"></see>
 		/// </returns>
-		public virtual com.discobeard.spriter.dom.MainLine getMainline()
+		public virtual MainLine getMainline()
 		{
 			return mainline;
 		}
@@ -67,7 +67,7 @@ namespace com.discobeard.spriter.dom
 		/// allowed object is
 		/// <see cref="MainLine"></see>
 		/// </param>
-		public virtual void setMainline(com.discobeard.spriter.dom.MainLine value)
+		public virtual void setMainline(MainLine value)
 		{
 			this.mainline = value;
 		}
@@ -89,13 +89,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="TimeLine"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.TimeLine
-			> getTimeline()
+		public virtual IList<TimeLine> getTimeline()
 		{
 			if (timeline == null)
 			{
-				timeline = new System.Collections.Generic.List<com.discobeard.spriter.dom.TimeLine
-					>();
+				timeline = new List<TimeLine>();
 			}
 			return this.timeline;
 		}

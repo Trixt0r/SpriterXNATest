@@ -13,12 +13,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter.player;
+***************************************************************************/
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter.player;
 using System.Collections.Generic;
 
-namespace com.brashmonkey.spriter.ik
+namespace Com.Brashmonkey.Spriter.ik
 {
 	public abstract class SpriterIKResolver
 	{
@@ -53,16 +53,16 @@ namespace com.brashmonkey.spriter.ik
 		/// <param name="player">player to apply the resolving.</param>
 		public virtual void resolve(SpriterAbstractPlayer player)
 		{
-			foreach (KeyValuePair<SpriterIKObject, SpriterAbstractObject> entry in this.ikMap.EntrySet())
-			{
-				for (int j = 0; j < entry.Key.iterations; j++)
+            foreach(SpriterIKObject key in this.ikMap.Keys)
+            {
+                for (int j = 0; j < key.iterations; j++)
                 {
-                    SpriterAbstractObject obj;
-                    if (entry.Value is com.brashmonkey.spriter.objects.SpriterBone) obj = player.getRuntimeBones()[entry.Value.getId()];
-                    else obj = player.getRuntimeObjects()[entry.Value.getId()];
-                    this.resolve(entry.Key.getX(), entry.Key.getY(), entry.Key.chainLength, obj, player);
+                    SpriterAbstractObject obj = this.ikMap[key];
+                    if (obj is Com.Brashmonkey.Spriter.objects.SpriterBone) obj = player.getRuntimeBones()[obj.getId()];
+                    else obj = player.getRuntimeObjects()[obj.getId()];
+                    this.resolve(obj.getX(), obj.getY(), key.chainLength, obj, player);
 				}
-			}
+            }
 		}
 
 		/// <returns>the resovling</returns>
@@ -94,10 +94,9 @@ namespace com.brashmonkey.spriter.ik
 		/// <summary>Removes the given object from the internal map.</summary>
 		/// <remarks>Removes the given object from the internal map.</remarks>
 		/// <param name="object"></param>
-		public virtual void unmapIKObject(SpriterIKObject
-			 @object)
+		public virtual void unmapIKObject(SpriterIKObject @object)
 		{
-			Sharpen.Collections.Remove(this.ikMap, @object);
+            this.ikMap.Remove(@object);
 		}
 
 		public virtual float getTolerance()
@@ -115,43 +114,39 @@ namespace com.brashmonkey.spriter.ik
 		/// 	</remarks>
 		/// <param name="parents">indicates whether parents of the effectors have to be deactivated or not.
 		/// 	</param>
-		public virtual void deactivateEffectors(SpriterAbstractPlayer
-			 player, bool parents)
+		public virtual void deactivateEffectors(SpriterAbstractPlayer player, bool parents)
 		{
-			foreach (KeyValuePair<SpriterIKObject, SpriterAbstractObject> entry in this.ikMap.EntrySet())
-			{
-                SpriterAbstractObject obj = entry.Value;
-                if (entry.Value is SpriterBone) obj = player.getRuntimeBones()[entry.Value.getId()];
-                else obj = player.getRuntimeObjects()[entry.Value.getId()];
-				obj.active = false;
-				if (!parents)
-				{
-					continue;
-				}
-				SpriterBone par = (SpriterBone
-					)entry.Value.getParent();
-				for (int j = 0; j < entry.Key.chainLength && par != null; j++)
-				{
-					player.getRuntimeBones()[par.getId()].active = false;
-					par = (SpriterBone)par.getParent();
-				}
-			}
+            foreach (SpriterIKObject key in this.ikMap.Keys)
+            {
+                SpriterAbstractObject obj = this.ikMap[key];
+                if (obj is SpriterBone) obj = player.getRuntimeBones()[obj.getId()];
+                else obj = player.getRuntimeObjects()[obj.getId()];
+                obj.active = false;
+                if (!parents)
+                {
+                    continue;
+                }
+                SpriterBone par = (SpriterBone)obj.getParent();
+                for (int j = 0; j < key.chainLength && par != null; j++)
+                {
+                    player.getRuntimeBones()[par.getId()].active = false;
+                    par = (SpriterBone)par.getParent();
+                }
+            }
 		}
 
-		public virtual void activateEffectors(SpriterAbstractPlayer
-			 player)
+		public virtual void activateEffectors(SpriterAbstractPlayer player)
 		{
-			foreach (KeyValuePair<SpriterIKObject, SpriterAbstractObject> entry in this.ikMap.EntrySet())
+            foreach (SpriterIKObject key in this.ikMap.Keys)
             {
-                SpriterAbstractObject obj = entry.Value;
-                if (entry.Value is SpriterBone) obj = player.getRuntimeBones()[entry.Value.getId()];
-                else obj = player.getRuntimeObjects()[entry.Value.getId()];
-				obj.active = true;
-				SpriterBone par = (SpriterBone
-					)entry.Value.getParent();
-				for (int j = 0; j < entry.Key.chainLength && par != null; j++)
+                SpriterAbstractObject obj = this.ikMap[key];
+                if (obj is SpriterBone) obj = player.getRuntimeBones()[obj.getId()];
+                else obj = player.getRuntimeObjects()[obj.getId()];
+                obj.active = true;
+                SpriterBone par = (SpriterBone)obj.getParent();
+				for (int j = 0; j < key.chainLength && par != null; j++)
 				{
-					player.getRuntimeBones()[par.getId()].active = false;
+					player.getRuntimeBones()[par.getId()].active = true;
 					par = (SpriterBone)par.getParent();
 				}
 			}

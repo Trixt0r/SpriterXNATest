@@ -13,14 +13,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 using com.discobeard.spriter.dom;
-using com.brashmonkey.spriter.objects;
+using Com.Brashmonkey.Spriter.objects;
 
-namespace com.brashmonkey.spriter.mergers
+namespace Com.Brashmonkey.Spriter.mergers
 {
-	public class SpriterBoneMerger : com.brashmonkey.spriter.mergers.ISpriterMerger<com.discobeard.spriter.dom.BoneRef
-		, com.discobeard.spriter.dom.Key, com.brashmonkey.spriter.objects.SpriterBone>
+	public class SpriterBoneMerger : Com.Brashmonkey.Spriter.mergers.ISpriterMerger<com.discobeard.spriter.dom.BoneRef
+		, com.discobeard.spriter.dom.Key, Com.Brashmonkey.Spriter.objects.SpriterBone>
 	{
 		public virtual SpriterBone merge(BoneRef @ref, Key key)
 		{
@@ -29,11 +29,11 @@ namespace com.brashmonkey.spriter.mergers
             bone.setTimeline(@ref.getTimeline());
             bone.setId(@ref.getId());
             bone.setParentId(@ref.getParent());
-            bone.setAngle(obj.getAngle().floatValue());
-            bone.setScaleX(obj.getScaleX().floatValue());
-            bone.setScaleY(obj.getScaleY().floatValue());
-            bone.setX(obj.getX().floatValue());
-            bone.setY(obj.getY().floatValue());
+            bone.setAngle(obj.getAngle());
+            bone.setScaleX(obj.getScaleX());
+            bone.setScaleY(obj.getScaleY());
+            bone.setX(obj.getX());
+            bone.setY(obj.getY());
             bone.setSpin(key.getSpin());
 			return bone;
 		}

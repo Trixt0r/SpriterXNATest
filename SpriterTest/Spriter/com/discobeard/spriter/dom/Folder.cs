@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -28,8 +29,7 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class Folder
 	{
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.File
-			> file;
+		protected internal IList<File> file;
 
 		protected internal int id;
 
@@ -58,12 +58,12 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="File"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.File> 
+		public virtual IList<File> 
 			getFile()
 		{
 			if (file == null)
 			{
-				file = new System.Collections.Generic.List<com.discobeard.spriter.dom.File>();
+				file = new List<File>();
 			}
 			return this.file;
 		}

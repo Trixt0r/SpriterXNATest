@@ -4,13 +4,13 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
 using System.Xml;
 using System;
 using System.Collections.Generic;
 using com.discobeard.spriter.dom;
 
-namespace com.brashmonkey.spriter.xml
+namespace Com.Brashmonkey.Spriter.xml
 {
 	/// <summary>This class was implemented to give you the chance loading scml files on android with libGDX since JAXB does not run on android devices.
 	/// 	</summary>
@@ -34,9 +34,10 @@ namespace com.brashmonkey.spriter.xml
                 System.IO.FileStream stream = new System.IO.FileStream(filename, System.IO.FileMode.Open);
                 return load(stream);
 			}
-			catch (java.io.FileNotFoundException e)
+			catch (System.IO.FileNotFoundException e)
 			{
-				Sharpen.Runtime.PrintStackTrace(e);
+				//Sharpen.Runtime.PrintStackTrace(e);
+                Console.WriteLine(e.StackTrace);
 			}
 			return null;
 		}
@@ -46,7 +47,7 @@ namespace com.brashmonkey.spriter.xml
             XmlReader reader = new XmlReader();
             reader.parse(stream);
             XmlNode root = reader.getNode("spriter_data");
-            data = new discobeard.spriter.dom.SpriterData();
+            data = new SpriterData();
             loadFolders(XmlReader.getChildrenByName(root, "folder"));
             loadEntities(XmlReader.getChildrenByName(root, "entity"));
 			return data;
@@ -203,11 +204,11 @@ namespace com.brashmonkey.spriter.xml
 				if (obj != null)
 				{
 					Bone bone = new Bone();
-					bone.setAngle(new java.math.BigDecimal(XmlReader.getFloat(obj,"angle", 0f )));
-					bone.setX(new java.math.BigDecimal(XmlReader.getFloat(obj,"x", 0f )));
-					bone.setY(new java.math.BigDecimal(XmlReader.getFloat(obj,"y", 0f )));
-					bone.setScaleX(new java.math.BigDecimal(XmlReader.getFloat(obj,"scale_x", 1f )));
-					bone.setScaleY(new java.math.BigDecimal(XmlReader.getFloat(obj,"scale_y", 1f )));
+					bone.setAngle(XmlReader.getFloat(obj,"angle", 0f ));
+					bone.setX(XmlReader.getFloat(obj,"x", 0f ));
+					bone.setY(XmlReader.getFloat(obj,"y", 0f ));
+					bone.setScaleX(XmlReader.getFloat(obj,"scale_x", 1f ));
+					bone.setScaleY(XmlReader.getFloat(obj,"scale_y", 1f ));
 					key.setBone(bone);
 				}
 				else
@@ -215,19 +216,17 @@ namespace com.brashmonkey.spriter.xml
 					AnimationObject @object = new AnimationObject
 						();
                     obj = XmlReader.getChildByName(k, "object");
-					@object.setAngle(new java.math.BigDecimal(XmlReader.getFloat(obj,"angle", 0f )));
-					@object.setX(new java.math.BigDecimal(XmlReader.getFloat(obj,"x", 0f )));
-					@object.setY(new java.math.BigDecimal(XmlReader.getFloat(obj,"y", 0f )));
-					@object.setScaleX(new java.math.BigDecimal(XmlReader.getFloat(obj,"scale_x", 1f )));
-					@object.setScaleY(new java.math.BigDecimal(XmlReader.getFloat(obj,"scale_y", 1f )));
+					@object.setAngle(XmlReader.getFloat(obj,"angle", 0f ));
+					@object.setX(XmlReader.getFloat(obj,"x", 0f ));
+					@object.setY(XmlReader.getFloat(obj,"y", 0f ));
+					@object.setScaleX(XmlReader.getFloat(obj,"scale_x", 1f ));
+					@object.setScaleY(XmlReader.getFloat(obj,"scale_y", 1f ));
 					@object.setFolder(XmlReader.getInt(obj,"folder" ));
 					@object.setFile(XmlReader.getInt(obj,"file" ));
 					File f = data.getFolder()[@object.getFolder()].getFile
 						()[@object.getFile()];
-					@object.setPivotX(new java.math.BigDecimal(XmlReader.getFloat(obj,"pivot_x", f.getPivotX( ))
-						));
-					@object.setPivotY(new java.math.BigDecimal(XmlReader.getFloat(obj,"pivot_y", f.getPivotY( ))
-						));
+					@object.setPivotX(XmlReader.getFloat(obj,"pivot_x", f.getPivotX()));
+					@object.setPivotY(XmlReader.getFloat(obj,"pivot_y", f.getPivotY()));
 					key.getObject().Add(@object);
 				}
 				timeline.getKey().Add(key);

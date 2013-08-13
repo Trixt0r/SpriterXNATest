@@ -14,12 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
 using com.discobeard.spriter.dom;
-using com.brashmonkey.spriter.file;
+using Com.Brashmonkey.Spriter.file;
 using System.Collections.Generic;
 
-namespace com.brashmonkey.spriter.player
+namespace Com.Brashmonkey.Spriter.player
 {
 	/// <summary>A SpriterPlayer is the core of a spriter animation.</summary>
 	/// <remarks>
@@ -73,7 +72,7 @@ namespace com.brashmonkey.spriter.player
 
 		protected internal Entity entity;
 
-		private com.brashmonkey.spriter.animation.SpriterAnimation animation;
+		private Com.Brashmonkey.Spriter.animation.SpriterAnimation animation;
 
 		private int transitionSpeed = 30;
 
@@ -81,11 +80,11 @@ namespace com.brashmonkey.spriter.player
 
 		private int currentKey = 0;
 
-		internal com.brashmonkey.spriter.animation.SpriterKeyFrame lastRealFrame;
+		internal Com.Brashmonkey.Spriter.animation.SpriterKeyFrame lastRealFrame;
 
-		internal com.brashmonkey.spriter.animation.SpriterKeyFrame firstKeyFrame;
+		internal Com.Brashmonkey.Spriter.animation.SpriterKeyFrame firstKeyFrame;
 
-		internal com.brashmonkey.spriter.animation.SpriterKeyFrame secondKeyFrame;
+		internal Com.Brashmonkey.Spriter.animation.SpriterKeyFrame secondKeyFrame;
 
 		internal bool transitionTempFixed = true;
 
@@ -121,7 +120,7 @@ namespace com.brashmonkey.spriter.player
 			}
 			else
 			{
-				this.animations = loaded.Get(entity).animations;
+				this.animations = loaded[entity].animations;
 			}
 			this.generateData();
 			this.animation = this.animations[0];
@@ -157,7 +156,7 @@ namespace com.brashmonkey.spriter.player
 		/// 	</remarks>
 		/// <param name="data">
 		/// 
-		/// <see cref="com.brashmonkey.spriter.Spriter">com.brashmonkey.spriter.Spriter</see>
+		/// <see cref="Com.Brashmonkey.Spriter.Spriter">Com.Brashmonkey.Spriter.Spriter</see>
 		/// which provides a method to load all needed data to animate. See
 		/// <see cref="Spriter#getSpriter(String,com.spriter.file.FileLoader)">Spriter#getSpriter(String,com.spriter.file.FileLoader)
 		/// 	</see>
@@ -167,7 +166,7 @@ namespace com.brashmonkey.spriter.player
 		/// 	</param>
 		/// <param name="loader">The loader which has loaded all necessary sprites for the scml file.
 		/// 	</param>
-		public SpriterPlayer(com.brashmonkey.spriter.Spriter spriter, int entityIndex, FileLoader loader) : this(spriter.getSpriterData(), spriter.getSpriterData().getEntity
+		public SpriterPlayer(Com.Brashmonkey.Spriter.Spriter spriter, int entityIndex, FileLoader loader) : this(spriter.getSpriterData(), spriter.getSpriterData().getEntity
 			()[entityIndex], loader)
 		{
 		}
@@ -175,7 +174,7 @@ namespace com.brashmonkey.spriter.player
 		protected internal override void step(float xOffset, float yOffset)
 		{
 			//Fetch information
-			IList<com.brashmonkey.spriter.animation.SpriterKeyFrame
+			IList<Com.Brashmonkey.Spriter.animation.SpriterKeyFrame
 				> frameList = this.animation.frames;
 			if (this.transitionFixed && this.transitionTempFixed)
 			{
@@ -368,7 +367,7 @@ namespace com.brashmonkey.spriter.player
 
 		/// <returns>the current animation with all its raw data which was read from the scml file.
 		/// 	</returns>
-		public virtual com.brashmonkey.spriter.animation.SpriterAnimation getAnimation()
+		public virtual Com.Brashmonkey.Spriter.animation.SpriterAnimation getAnimation()
 		{
 			return animation;
 		}

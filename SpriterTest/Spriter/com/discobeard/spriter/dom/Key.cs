@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -32,16 +33,13 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class Key
 	{
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.AnimationObject
-			> @object;
+		protected internal IList<AnimationObject> @object;
 
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.AnimationObjectRef
-			> objectRef;
+		protected internal IList<AnimationObjectRef> objectRef;
 
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.BoneRef
-			> boneRef;
+		protected internal IList<BoneRef> boneRef;
 
-		protected internal com.discobeard.spriter.dom.Bone bone;
+		protected internal Bone bone;
 
 		protected internal int id;
 
@@ -72,13 +70,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="AnimationObject"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.AnimationObject
-			> getObject()
+		public virtual IList<AnimationObject> getObject()
 		{
 			if (@object == null)
 			{
-				@object = new System.Collections.Generic.List<com.discobeard.spriter.dom.AnimationObject
-					>();
+				@object = new List<AnimationObject	>();
 			}
 			return this.@object;
 		}
@@ -100,13 +96,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="AnimationObjectRef"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.AnimationObjectRef
-			> getObjectRef()
+		public virtual IList<AnimationObjectRef> getObjectRef()
 		{
 			if (objectRef == null)
 			{
-				objectRef = new System.Collections.Generic.List<com.discobeard.spriter.dom.AnimationObjectRef
-					>();
+				objectRef = new List<AnimationObjectRef>();
 			}
 			return this.objectRef;
 		}
@@ -128,12 +122,12 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="BoneRef"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.BoneRef
+		public virtual IList<BoneRef
 			> getBoneRef()
 		{
 			if (boneRef == null)
 			{
-				boneRef = new System.Collections.Generic.List<com.discobeard.spriter.dom.BoneRef>
+				boneRef = new List<BoneRef>
 					();
 			}
 			return this.boneRef;
@@ -145,7 +139,7 @@ namespace com.discobeard.spriter.dom
 		/// possible object is
 		/// <see cref="Bone"></see>
 		/// </returns>
-		public virtual com.discobeard.spriter.dom.Bone getBone()
+		public virtual Bone getBone()
 		{
 			return bone;
 		}
@@ -156,7 +150,7 @@ namespace com.discobeard.spriter.dom
 		/// allowed object is
 		/// <see cref="Bone"></see>
 		/// </param>
-		public virtual void setBone(com.discobeard.spriter.dom.Bone value)
+		public virtual void setBone(Bone value)
 		{
 			this.bone = value;
 		}

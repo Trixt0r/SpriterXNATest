@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.objects;
 
-namespace com.brashmonkey.spriter.animation
+using Com.Brashmonkey.Spriter.objects;
+
+namespace Com.Brashmonkey.Spriter.animation
 {
 	/// <summary>A SpriterKeyFrame holds an array of #SpriterBone and an array of #SpriterObject and their transformations.
 	/// 	</summary>

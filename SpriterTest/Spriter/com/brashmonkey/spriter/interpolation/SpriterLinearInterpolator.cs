@@ -13,28 +13,28 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.interpolation
+namespace Com.Brashmonkey.Spriter.interpolation
 {
-	public class SpriterLinearInterpolator : com.brashmonkey.spriter.interpolation.SpriterInterpolator
+	public class SpriterLinearInterpolator : Com.Brashmonkey.Spriter.interpolation.SpriterInterpolator
 	{
 		public virtual float interpolate(float a, float b, float timeA, float timeB, float
 			 currentTime)
 		{
-			return com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(a, b, timeA
+			return Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(a, b, timeA
 				, timeB, currentTime);
 		}
 
 		public virtual float interpolateAngle(float a, float b, float timeA, float timeB, 
 			float currentTime)
 		{
-			return com.brashmonkey.spriter.SpriterCalculator.calculateAngleInterpolation(a, b
+			return Com.Brashmonkey.Spriter.SpriterCalculator.calculateAngleInterpolation(a, b
 				, timeA, timeB, currentTime);
 		}
 
-		public static readonly com.brashmonkey.spriter.interpolation.SpriterLinearInterpolator
-			 interpolator = new com.brashmonkey.spriter.interpolation.SpriterLinearInterpolator
+		public static readonly Com.Brashmonkey.Spriter.interpolation.SpriterLinearInterpolator
+			 interpolator = new Com.Brashmonkey.Spriter.interpolation.SpriterLinearInterpolator
 			();
 	}
 }

@@ -13,9 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.draw
+namespace Com.Brashmonkey.Spriter.draw
 {
 	/// <summary>An AbstractDrawer is an object which is able to draw an animated entity.
 	/// 	</summary>
@@ -30,7 +30,7 @@ namespace com.brashmonkey.spriter.draw
 	/// <?></?>
 	public abstract class AbstractDrawer
 	{
-		public com.brashmonkey.spriter.file.FileLoader loader;
+		public Com.Brashmonkey.Spriter.file.FileLoader loader;
 
 		public static float BONE_LENGTH = 200;
 
@@ -40,7 +40,7 @@ namespace com.brashmonkey.spriter.draw
 
 		public bool debubBoxes = true;
 
-		public AbstractDrawer(com.brashmonkey.spriter.file.FileLoader loader)
+		public AbstractDrawer(Com.Brashmonkey.Spriter.file.FileLoader loader)
 		{
 			this.loader = loader;
 		}
@@ -48,7 +48,7 @@ namespace com.brashmonkey.spriter.draw
 		/// <summary>Draws a sprite with the given instruction.</summary>
 		/// <remarks>Draws a sprite with the given instruction.</remarks>
 		/// <param name="instruction">Instruction to draw with.</param>
-		public abstract void draw(com.brashmonkey.spriter.draw.DrawInstruction instruction
+		public abstract void draw(Com.Brashmonkey.Spriter.draw.DrawInstruction instruction
 			);
 
 		/// <summary>
@@ -60,10 +60,10 @@ namespace com.brashmonkey.spriter.draw
 		/// </summary>
 		/// <param name="player">
 		/// 
-		/// <see>[com.brashmonkey.spriter.player.]SpriterAbstractPlayer AbstractPlayer</see>
+		/// <see>[Com.Brashmonkey.Spriter.player.]SpriterAbstractPlayer AbstractPlayer</see>
 		/// to draw
 		/// </param>
-		public virtual void debugDraw(com.brashmonkey.spriter.player.SpriterAbstractPlayer
+		public virtual void debugDraw(Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer
 			 player)
 		{
 			if (debubBoxes)
@@ -76,12 +76,12 @@ namespace com.brashmonkey.spriter.draw
 			}
 		}
 
-		protected internal virtual void drawBones(com.brashmonkey.spriter.player.SpriterAbstractPlayer
+		protected internal virtual void drawBones(Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer
 			 player)
 		{
 			for (int i = 0; i < player.getBonesToAnimate(); i++)
 			{
-				com.brashmonkey.spriter.objects.SpriterBone bone = player.getRuntimeBones()[i];
+				Com.Brashmonkey.Spriter.objects.SpriterBone bone = player.getRuntimeBones()[i];
 				if (bone.active)
 				{
 					this.setDrawColor(1, 0, 0, 1);
@@ -114,7 +114,7 @@ namespace com.brashmonkey.spriter.draw
 			}
 		}
 
-		protected internal virtual void drawBoxes(com.brashmonkey.spriter.player.SpriterAbstractPlayer
+		protected internal virtual void drawBoxes(Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer
 			 player)
 		{
 			this.setDrawColor(.25f, 1f, .25f, 1f);
@@ -122,7 +122,7 @@ namespace com.brashmonkey.spriter.draw
 				player.getBoundingBox().width, player.getBoundingBox().height);
 			for (int j = 0; j < player.getObjectsToDraw(); j++)
 			{
-				com.brashmonkey.spriter.SpriterPoint[] points = player.getRuntimeObjects()[j].getBoundingBox
+				Com.Brashmonkey.Spriter.SpriterPoint[] points = player.getRuntimeObjects()[j].getBoundingBox
 					();
 				this.drawLine(points[0].x, points[0].y, points[1].x, points[1].y);
 				this.drawLine(points[1].x, points[1].y, points[3].x, points[3].y);
@@ -141,10 +141,10 @@ namespace com.brashmonkey.spriter.draw
 		/// <summary>Draws the given player with its sprites.</summary>
 		/// <remarks>Draws the given player with its sprites.</remarks>
 		/// <param name="player">Player to draw.</param>
-		public virtual void draw(com.brashmonkey.spriter.player.SpriterAbstractPlayer player
+		public virtual void draw(Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer player
 			)
 		{
-			com.brashmonkey.spriter.draw.DrawInstruction[] instructions = player.getDrawInstructions
+			Com.Brashmonkey.Spriter.draw.DrawInstruction[] instructions = player.getDrawInstructions
 				();
 			for (int i = 0; i < player.getObjectsToDraw(); i++)
 			{
@@ -152,7 +152,7 @@ namespace com.brashmonkey.spriter.draw
 				{
 					this.draw(instructions[i]);
 				}
-				foreach (com.brashmonkey.spriter.player.SpriterAbstractPlayer pl in player.getAttachedPlayers
+				foreach (Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer pl in player.getAttachedPlayers
 					())
 				{
 					if (player.getZIndex() == i)
@@ -162,7 +162,7 @@ namespace com.brashmonkey.spriter.draw
 					}
 				}
 			}
-			foreach (com.brashmonkey.spriter.player.SpriterAbstractPlayer pl_1 in player.getAttachedPlayers
+			foreach (Com.Brashmonkey.Spriter.player.SpriterAbstractPlayer pl_1 in player.getAttachedPlayers
 				())
 			{
 				if (!player.drawn)

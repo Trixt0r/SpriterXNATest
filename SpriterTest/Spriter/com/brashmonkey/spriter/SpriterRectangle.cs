@@ -13,9 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter
+namespace Com.Brashmonkey.Spriter
 {
 	public class SpriterRectangle
 	{
@@ -37,7 +37,7 @@ namespace com.brashmonkey.spriter
 			this.calculateSize();
 		}
 
-		public SpriterRectangle(com.brashmonkey.spriter.SpriterRectangle rect)
+		public SpriterRectangle(Com.Brashmonkey.Spriter.SpriterRectangle rect)
 		{
 			this.set(rect);
 		}
@@ -53,7 +53,7 @@ namespace com.brashmonkey.spriter
 			this.height = top - bottom;
 		}
 
-		public virtual void set(com.brashmonkey.spriter.SpriterRectangle rect)
+		public virtual void set(Com.Brashmonkey.Spriter.SpriterRectangle rect)
 		{
 			if (rect == null)
 			{
@@ -74,8 +74,8 @@ namespace com.brashmonkey.spriter
 			this.bottom = bottom;
 		}
 
-		public static bool areIntersecting(com.brashmonkey.spriter.SpriterRectangle rect1
-			, com.brashmonkey.spriter.SpriterRectangle rect2)
+		public static bool areIntersecting(Com.Brashmonkey.Spriter.SpriterRectangle rect1
+			, Com.Brashmonkey.Spriter.SpriterRectangle rect2)
 		{
 			return rect1.isInisde(rect2.left, rect2.top) || rect1.isInisde(rect2.right, rect2
 				.top) || rect1.isInisde(rect2.left, rect2.bottom) || rect1.isInisde(rect2.right, 

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using com.brashmonkey.spriter;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter.draw;
-using com.brashmonkey.spriter.file;
-using com.brashmonkey.spriter.player;
+using Com.Brashmonkey.Spriter;
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter.draw;
+using Com.Brashmonkey.Spriter.file;
+using Com.Brashmonkey.Spriter.player;
+using System.Diagnostics;
 
 namespace SpriterTest
 {
@@ -54,7 +55,7 @@ namespace SpriterTest
             Vector2 position = new Vector2(x, -y);
             Vector2 origin = new Vector2(reference.dimensions.width * pivotX, reference.dimensions.height * (1 - pivotY));
             Vector2 scale = new Vector2(scaleX, scaleY);
-            Color color = new Color(1,1,1, alpha);
+            Color color = new Color(1,1,1,alpha);
             this.batch.Draw(sprite, position, null, color, this.DegreeToRadian(-angle), origin, scale, SpriteEffects.None, 1);
         }
 

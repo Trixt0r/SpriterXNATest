@@ -4,7 +4,7 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
 
 namespace com.discobeard.spriter.dom
 {
@@ -38,21 +38,21 @@ namespace com.discobeard.spriter.dom
 
 		protected internal int file;
 
-		protected internal java.math.BigDecimal x;
+		protected internal float x;
 
-		protected internal java.math.BigDecimal y;
+		protected internal float y;
 
-		protected internal java.math.BigDecimal pivotX;
+		protected internal float pivotX = 0f;
 
-		protected internal java.math.BigDecimal pivotY;
+		protected internal float pivotY = 1f;
 
-		protected internal java.math.BigDecimal scaleX;
+		protected internal float scaleX = 1f;
 
-		protected internal java.math.BigDecimal scaleY;
+		protected internal float scaleY = 1f;
 
-		protected internal java.math.BigDecimal angle;
+		protected internal float angle;
 
-		protected internal java.math.BigDecimal a;
+		protected internal float a = 1f;
 
 		protected internal int zIndex;
 
@@ -110,27 +110,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the x property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="int"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getX()
+		public virtual float getX()
 		{
-			if (x == null)
-			{
-				return new java.math.BigDecimal("0");
-			}
-			else
-			{
-				return x;
-			}
+			return x;
 		}
 
 		/// <summary>Sets the value of the x property.</summary>
 		/// <remarks>Sets the value of the x property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setX(java.math.BigDecimal value)
+		public virtual void setX(float value)
 		{
 			this.x = value;
 		}
@@ -139,27 +132,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the y property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getY()
+		public virtual float getY()
 		{
-			if (y == null)
-			{
-				return new java.math.BigDecimal("0");
-			}
-			else
-			{
-				return y;
-			}
+			return y;
 		}
 
 		/// <summary>Sets the value of the y property.</summary>
 		/// <remarks>Sets the value of the y property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setY(java.math.BigDecimal value)
+		public virtual void setY(float value)
 		{
 			this.y = value;
 		}
@@ -168,27 +154,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the pivotX property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getPivotX()
+		public virtual float getPivotX()
 		{
-			if (pivotX == null)
-			{
-				return new java.math.BigDecimal("0");
-			}
-			else
-			{
-				return pivotX;
-			}
+			return pivotX;
 		}
 
 		/// <summary>Sets the value of the pivotX property.</summary>
 		/// <remarks>Sets the value of the pivotX property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setPivotX(java.math.BigDecimal value)
+		public virtual void setPivotX(float value)
 		{
 			this.pivotX = value;
 		}
@@ -197,27 +176,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the pivotY property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getPivotY()
+		public virtual float getPivotY()
 		{
-			if (pivotY == null)
-			{
-				return new java.math.BigDecimal("1");
-			}
-			else
-			{
-				return pivotY;
-			}
+			return pivotY;
 		}
 
 		/// <summary>Sets the value of the pivotY property.</summary>
 		/// <remarks>Sets the value of the pivotY property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setPivotY(java.math.BigDecimal value)
+		public virtual void setPivotY(float value)
 		{
 			this.pivotY = value;
 		}
@@ -226,27 +198,21 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the scaleX property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getScaleX()
+		public virtual float getScaleX()
 		{
-			if (scaleX == null)
-			{
-				return new java.math.BigDecimal("1");
-			}
-			else
-			{
-				return scaleX;
-			}
+				
+            return scaleX;
 		}
 
 		/// <summary>Sets the value of the scaleX property.</summary>
 		/// <remarks>Sets the value of the scaleX property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setScaleX(java.math.BigDecimal value)
+		public virtual void setScaleX(float value)
 		{
 			this.scaleX = value;
 		}
@@ -255,27 +221,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the scaleY property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getScaleY()
+		public virtual float getScaleY()
 		{
-			if (scaleY == null)
-			{
-				return new java.math.BigDecimal("1");
-			}
-			else
-			{
-				return scaleY;
-			}
+            return scaleY;
 		}
 
 		/// <summary>Sets the value of the scaleY property.</summary>
 		/// <remarks>Sets the value of the scaleY property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setScaleY(java.math.BigDecimal value)
+		public virtual void setScaleY(float value)
 		{
 			this.scaleY = value;
 		}
@@ -284,27 +243,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the angle property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getAngle()
+		public virtual float getAngle()
 		{
-			if (angle == null)
-			{
-				return new java.math.BigDecimal("0");
-			}
-			else
-			{
-				return angle;
-			}
+			return angle;
 		}
 
 		/// <summary>Sets the value of the angle property.</summary>
 		/// <remarks>Sets the value of the angle property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setAngle(java.math.BigDecimal value)
+		public virtual void setAngle(float value)
 		{
 			this.angle = value;
 		}
@@ -313,27 +265,20 @@ namespace com.discobeard.spriter.dom
 		/// <remarks>Gets the value of the a property.</remarks>
 		/// <returns>
 		/// possible object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </returns>
-		public virtual java.math.BigDecimal getA()
+		public virtual float getA()
 		{
-			if (a == null)
-			{
-				return new java.math.BigDecimal("1");
-			}
-			else
-			{
-				return a;
-			}
+			return a;
 		}
 
 		/// <summary>Sets the value of the a property.</summary>
 		/// <remarks>Sets the value of the a property.</remarks>
 		/// <param name="value">
 		/// allowed object is
-		/// <see cref="java.math.BigDecimal"></see>
+		/// <see cref="float"></see>
 		/// </param>
-		public virtual void setA(java.math.BigDecimal value)
+		public virtual void setA(float value)
 		{
 			this.a = value;
 		}

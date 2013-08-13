@@ -14,24 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter.player;
 
-namespace com.brashmonkey.spriter.ik
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter.player;
+
+namespace Com.Brashmonkey.Spriter.ik
 {
-	public class SpriterCCDResolver : com.brashmonkey.spriter.ik.SpriterIKResolver
+	public class SpriterCCDResolver : Com.Brashmonkey.Spriter.ik.SpriterIKResolver
 	{
 		protected override void resolve(float x, float y, int chainLength, SpriterAbstractObject effector, SpriterAbstractPlayer player)
 		{
 			base.updateRecursively(player, effector);
 			float xx = effector.getX() + (float)System.Math.Cos(SpriterCalculator.DegreeToRadian(effector
-				.getAngle())) * com.brashmonkey.spriter.draw.AbstractDrawer.BONE_LENGTH * effector
+				.getAngle())) * Com.Brashmonkey.Spriter.draw.AbstractDrawer.BONE_LENGTH * effector
 				.getScaleX();
 			float yy = effector.getY() + (float)System.Math.Sin(SpriterCalculator.DegreeToRadian(effector
-				.getAngle())) * com.brashmonkey.spriter.draw.AbstractDrawer.BONE_LENGTH * effector
+				.getAngle())) * Com.Brashmonkey.Spriter.draw.AbstractDrawer.BONE_LENGTH * effector
 				.getScaleX();
-			effector.setAngle(com.brashmonkey.spriter.SpriterCalculator.angleBetween(effector
+			effector.setAngle(Com.Brashmonkey.Spriter.SpriterCalculator.angleBetween(effector
 				.getX(), effector.getY(), x, y));
 			if (player.getFlipX() == -1)
 			{
@@ -48,7 +48,7 @@ namespace com.brashmonkey.spriter.ik
 			//else temp.copyValuesTo(player.lastFrame.getObjects()[effector.getId()]);
 			for (int i = 0; i < chainLength && parent != null; i++)
 			{
-				if (com.brashmonkey.spriter.SpriterCalculator.distanceBetween(xx, yy, x, y) <= this
+				if (Com.Brashmonkey.Spriter.SpriterCalculator.distanceBetween(xx, yy, x, y) <= this
 					.tolerance)
 				{
 					SpriterBone p = null;
@@ -72,9 +72,9 @@ namespace com.brashmonkey.spriter.ik
 					}
 					return;
 				}
-				parent.setAngle(parent.getAngle() + com.brashmonkey.spriter.SpriterCalculator.angleDifference
-					(com.brashmonkey.spriter.SpriterCalculator.angleBetween(parent.getX(), parent.getY
-					(), x, y), com.brashmonkey.spriter.SpriterCalculator.angleBetween(parent.getX(), 
+				parent.setAngle(parent.getAngle() + Com.Brashmonkey.Spriter.SpriterCalculator.angleDifference
+					(Com.Brashmonkey.Spriter.SpriterCalculator.angleBetween(parent.getX(), parent.getY
+					(), x, y), Com.Brashmonkey.Spriter.SpriterCalculator.angleBetween(parent.getX(), 
 					parent.getY(), xx, yy)));
 				base.updateRecursively(player, parent);
 				if (parent.hasParent())
@@ -86,10 +86,10 @@ namespace com.brashmonkey.spriter.ik
 					parent = null;
 				}
 				xx = effector.getX() + (float)System.Math.Cos(SpriterCalculator.DegreeToRadian(effector.getAngle
-					())) * com.brashmonkey.spriter.draw.AbstractDrawer.BONE_LENGTH * effector.getScaleX
+					())) * Com.Brashmonkey.Spriter.draw.AbstractDrawer.BONE_LENGTH * effector.getScaleX
 					();
 				yy = effector.getY() + (float)System.Math.Sin(SpriterCalculator.DegreeToRadian(effector.getAngle
-					())) * com.brashmonkey.spriter.draw.AbstractDrawer.BONE_LENGTH * effector.getScaleX
+					())) * Com.Brashmonkey.Spriter.draw.AbstractDrawer.BONE_LENGTH * effector.getScaleX
 					();
 			}
 		}

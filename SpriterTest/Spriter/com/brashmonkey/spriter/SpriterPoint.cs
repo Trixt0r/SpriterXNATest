@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
+
 using System;
-namespace com.brashmonkey.spriter
+namespace Com.Brashmonkey.Spriter
 {
 	public class SpriterPoint
 	{

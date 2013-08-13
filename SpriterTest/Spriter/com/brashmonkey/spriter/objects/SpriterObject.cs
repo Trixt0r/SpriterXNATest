@@ -13,9 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.objects
+namespace Com.Brashmonkey.Spriter.objects
 {
 	/// <summary>A SpriterObject is an object which holds the transformations for an object which was animated in the Spriter editor.
 	/// 	</summary>
@@ -38,31 +38,31 @@ namespace com.brashmonkey.spriter.objects
 
 		internal bool visible = true;
 
-		internal com.brashmonkey.spriter.file.Reference @ref;
+		internal Com.Brashmonkey.Spriter.file.Reference @ref;
 
-		internal com.brashmonkey.spriter.file.FileLoader loader = null;
+		internal Com.Brashmonkey.Spriter.file.FileLoader loader = null;
 
-		internal com.brashmonkey.spriter.SpriterRectangle rect = new com.brashmonkey.spriter.SpriterRectangle
+		internal Com.Brashmonkey.Spriter.SpriterRectangle rect = new Com.Brashmonkey.Spriter.SpriterRectangle
 			(0, 0, 0, 0);
 
-		private com.brashmonkey.spriter.SpriterPoint[] boundingPoints;
+		private Com.Brashmonkey.Spriter.SpriterPoint[] boundingPoints;
 
 		public SpriterObject()
 		{
-			boundingPoints = new com.brashmonkey.spriter.SpriterPoint[4];
+			boundingPoints = new Com.Brashmonkey.Spriter.SpriterPoint[4];
 			for (int i = 0; i < this.boundingPoints.Length; i++)
 			{
-				this.boundingPoints[i] = new com.brashmonkey.spriter.SpriterPoint(0, 0);
+				this.boundingPoints[i] = new Com.Brashmonkey.Spriter.SpriterPoint(0, 0);
 			}
 		}
 
-		public virtual void setRef(com.brashmonkey.spriter.file.Reference @ref)
+		public virtual void setRef(Com.Brashmonkey.Spriter.file.Reference @ref)
 		{
 			this.@ref = @ref;
 			this.rect.set(@ref.dimensions);
 		}
 
-		public virtual com.brashmonkey.spriter.file.Reference getRef()
+		public virtual Com.Brashmonkey.Spriter.file.Reference getRef()
 		{
 			return this.@ref;
 		}
@@ -144,12 +144,12 @@ namespace com.brashmonkey.spriter.objects
 			}
 		}
 
-		public virtual void setLoader(com.brashmonkey.spriter.file.FileLoader loader)
+		public virtual void setLoader(Com.Brashmonkey.Spriter.file.FileLoader loader)
 		{
 			this.loader = loader;
 		}
 
-		public virtual com.brashmonkey.spriter.file.FileLoader getLoader()
+		public virtual Com.Brashmonkey.Spriter.file.FileLoader getLoader()
 		{
 			return this.loader;
 		}
@@ -184,7 +184,7 @@ namespace com.brashmonkey.spriter.objects
 			((SpriterObject)@object).rect.set(this.rect);
 		}
 
-		public virtual void copyValuesTo(com.brashmonkey.spriter.draw.DrawInstruction instruction
+		public virtual void copyValuesTo(Com.Brashmonkey.Spriter.draw.DrawInstruction instruction
 			)
 		{
 			instruction.x = this.x;
@@ -200,7 +200,7 @@ namespace com.brashmonkey.spriter.objects
 			instruction.obj = this;
 		}
 
-		public virtual com.brashmonkey.spriter.SpriterPoint[] getBoundingBox()
+		public virtual Com.Brashmonkey.Spriter.SpriterPoint[] getBoundingBox()
 		{
 			float width = this.@ref.dimensions.width * this.scaleX;
 			float height = this.@ref.dimensions.height * this.scaleY;

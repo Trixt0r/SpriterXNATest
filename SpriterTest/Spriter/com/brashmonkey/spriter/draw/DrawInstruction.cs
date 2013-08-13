@@ -13,11 +13,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
-using com.brashmonkey.spriter.objects;
-using com.brashmonkey.spriter.file;
+***************************************************************************/
+using Com.Brashmonkey.Spriter.objects;
+using Com.Brashmonkey.Spriter.file;
 
-namespace com.brashmonkey.spriter.draw
+namespace Com.Brashmonkey.Spriter.draw
 {
 	/// <summary>A DrawIntruction is an object which holds all information you need to draw the previous transformed objects.
 	/// 	</summary>
@@ -50,7 +50,7 @@ namespace com.brashmonkey.spriter.draw
 
 		public SpriterRectangle rect = null;
 
-		public DrawInstruction(com.brashmonkey.spriter.file.Reference @ref, float x, float
+		public DrawInstruction(Com.Brashmonkey.Spriter.file.Reference @ref, float x, float
 			 y, float pivotX, float pivotY, float scaleX, float scaleY, float angle, float alpha
 			)
 		{

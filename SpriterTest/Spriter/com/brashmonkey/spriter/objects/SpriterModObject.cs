@@ -13,10 +13,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
-using com.brashmonkey.spriter.file;
+***************************************************************************/
+using Com.Brashmonkey.Spriter.file;
 
-namespace com.brashmonkey.spriter.objects
+namespace Com.Brashmonkey.Spriter.objects
 {
 	/// <summary>A SpriterModObject is an object which is able to manipulate animated bones and objects at runtime.
 	/// 	</summary>

@@ -4,7 +4,8 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
+
+using System.Collections.Generic;
 
 namespace com.discobeard.spriter.dom
 {
@@ -30,11 +31,9 @@ namespace com.discobeard.spriter.dom
 	/// </remarks>
 	public class SpriterData
 	{
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.Folder
-			> folder;
+		protected internal IList<Folder> folder;
 
-		protected internal System.Collections.Generic.IList<com.discobeard.spriter.dom.Entity
-			> entity;
+		protected internal IList<Entity> entity;
 
 		protected internal string scmlVersion;
 
@@ -65,11 +64,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="Folder"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.Folder> getFolder()
+		public virtual IList<Folder> getFolder()
 		{
 			if (folder == null)
 			{
-				folder = new System.Collections.Generic.List<com.discobeard.spriter.dom.Folder>();
+				folder = new List<Folder>();
 			}
 			return this.folder;
 		}
@@ -91,12 +90,11 @@ namespace com.discobeard.spriter.dom
 		/// Objects of the following type(s) are allowed in the list
 		/// <see cref="Entity"></see>
 		/// </remarks>
-		public virtual System.Collections.Generic.IList<com.discobeard.spriter.dom.Entity
-			> getEntity()
+		public virtual IList<Entity> getEntity()
 		{
 			if (entity == null)
 			{
-				entity = new System.Collections.Generic.List<com.discobeard.spriter.dom.Entity>();
+				entity = new List<Entity>();
 			}
 			return this.entity;
 		}

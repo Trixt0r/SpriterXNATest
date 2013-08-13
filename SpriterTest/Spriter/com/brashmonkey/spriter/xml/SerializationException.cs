@@ -4,9 +4,9 @@
  * If this is an open source Java library, include the proper license and copyright attributions here!
  */
 
-using Sharpen;
 
-namespace com.brashmonkey.spriter.xml
+
+namespace Com.Brashmonkey.Spriter.xml
 {
 	/// <summary>Indicates an error during serialization due to misconfiguration or during deserialization due to invalid input data.
 	/// 	</summary>

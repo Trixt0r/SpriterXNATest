@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
-using com.brashmonkey.spriter.file;
+using Com.Brashmonkey.Spriter.file;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 

@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ***************************************************************************/
-using Sharpen;
-using com.brashmonkey.spriter.player;
 
-namespace com.brashmonkey.spriter.player
+using Com.Brashmonkey.Spriter.player;
+
+namespace Com.Brashmonkey.Spriter.player
 {
 	/// <summary>This class is made to interpolate between two running animations.</summary>
 	/// <remarks>
@@ -119,9 +119,9 @@ namespace com.brashmonkey.spriter.player
 				this.first.update(xOffset, yOffset);
 				this.second.update(xOffset, yOffset);
 			}
-			com.brashmonkey.spriter.animation.SpriterKeyFrame key1 = (first.transitionFixed) ? 
+			Com.Brashmonkey.Spriter.animation.SpriterKeyFrame key1 = (first.transitionFixed) ? 
 				first.lastFrame : first.lastTempFrame;
-			com.brashmonkey.spriter.animation.SpriterKeyFrame key2 = (second.transitionFixed)
+			Com.Brashmonkey.Spriter.animation.SpriterKeyFrame key2 = (second.transitionFixed)
 				 ? second.lastFrame : second.lastTempFrame;
 			this.transformBones(key1, key2, xOffset, yOffset);
 			this.transformObjects(first.lastFrame, second.lastFrame, xOffset, yOffset);
@@ -129,8 +129,8 @@ namespace com.brashmonkey.spriter.player
 			this.second.frameSpeed = secondLastSpeed;
 		}
 
-		protected internal override void setInstructionRef(com.brashmonkey.spriter.draw.DrawInstruction
-			 dI, com.brashmonkey.spriter.objects.SpriterObject obj1, com.brashmonkey.spriter.objects.SpriterObject
+		protected internal override void setInstructionRef(Com.Brashmonkey.Spriter.draw.DrawInstruction
+			 dI, Com.Brashmonkey.Spriter.objects.SpriterObject obj1, Com.Brashmonkey.Spriter.objects.SpriterObject
 			 obj2)
 		{
 			dI.@ref = (this.weight <= 0.5f || obj2 == null) ? obj1.getRef() : obj2.getRef();
@@ -141,8 +141,8 @@ namespace com.brashmonkey.spriter.player
 
 		/// <summary>
 		/// See
-		/// <see cref="com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
-		/// 	">com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+		/// <see cref="Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+		/// 	">Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
 		/// 	</see>
 		/// Can be inherited, to handle other interpolation techniques. Standard is linear interpolation.
 		/// </summary>
@@ -154,8 +154,8 @@ namespace com.brashmonkey.spriter.player
 
 		/// <summary>
 		/// See
-		/// <see cref="com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
-		/// 	">com.brashmonkey.spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+		/// <see cref="Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
+		/// 	">Com.Brashmonkey.Spriter.SpriterCalculator.calculateInterpolation(float, float, float, float, float)
 		/// 	</see>
 		/// Can be inherited, to handle other interpolation techniques. Standard is linear interpolation.
 		/// </summary>

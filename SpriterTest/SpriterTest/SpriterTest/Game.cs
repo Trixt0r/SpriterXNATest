@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using com.brashmonkey.spriter;
-using com.brashmonkey.spriter.player;
-using com.brashmonkey.spriter.file;
+using Com.Brashmonkey.Spriter;
+using Com.Brashmonkey.Spriter.player;
+using Com.Brashmonkey.Spriter.file;
 
 namespace SpriterTest
 {
@@ -62,6 +62,7 @@ namespace SpriterTest
             //player1 = new SpriterPlayer(Spriter.getSpriter("monster/basic.scml", loader1), 0, loader1);
             Spriter spriter = new Spriter("monster/basic.scml", loader1);
             player1 = new SpriterPlayer(spriter.getSpriterData(), 0, loader1);
+            player1.setAnimation("dash", 0, 0);
             player1.setFrameSpeed(20);
 
             this.drawer = new SpriterDrawer(this.graphics);

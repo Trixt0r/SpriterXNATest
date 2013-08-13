@@ -13,9 +13,10 @@
  * WobjectTHOUT WARRANTobjectES OR CONDobjectTobjectONS OF ANY KobjectND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-***************************************************************************/using Sharpen;
+***************************************************************************/
 
-namespace com.brashmonkey.spriter.file
+using System.Collections.Generic;
+namespace Com.Brashmonkey.Spriter.file
 {
 	/// <summary>A FileLoader is an object which takes the task to load the resources a Spriter entity needs.
 	/// 	</summary>
@@ -30,11 +31,11 @@ namespace com.brashmonkey.spriter.file
 	/// <?></?>
 	public abstract class FileLoader
 	{
-		public System.Collections.Generic.Dictionary<com.brashmonkey.spriter.file.Reference
-			, object> files = new System.Collections.Generic.Dictionary<com.brashmonkey.spriter.file.Reference
+		public Dictionary<Reference
+			, object> files = new Dictionary<Reference
 			, object>();
 
-		public abstract void load(com.brashmonkey.spriter.file.Reference @ref, string path
+		public abstract void load(Reference @ref, string path
 			);
 
 		/// <summary>objects called if all resources have been passed to this loader.</summary>
@@ -44,17 +45,16 @@ namespace com.brashmonkey.spriter.file
 		}
 
 		//To be implemented by your specific backend loader.
-		public virtual object get(com.brashmonkey.spriter.file.Reference @ref)
+		public virtual object get(Reference @ref)
 		{
-			return files.Get(@ref);
+			return files[@ref];
 		}
 
 		/// <returns>Array of all loaded references by this loader.</returns>
-		public virtual com.brashmonkey.spriter.file.Reference[] getRefs()
+		public virtual Reference[] getRefs()
 		{
-			com.brashmonkey.spriter.file.Reference[] refs = new com.brashmonkey.spriter.file.Reference
-				[Sharpen.Collections.ToArray(this.files.Keys).Length];
-			Sharpen.Collections.ToArray(this.files.Keys, refs);
+			Reference[] refs = new Reference[this.files.Count];
+            files.Keys.CopyTo(refs, 0);
 			return refs;
 		}
 
@@ -65,11 +65,11 @@ namespace com.brashmonkey.spriter.file
 		/// </remarks>
 		/// <param name="ref">Reference to search after.</param>
 		/// <returns>Corresponding reference or null if not found.</returns>
-		public virtual com.brashmonkey.spriter.file.Reference findReference(com.brashmonkey.spriter.file.Reference
+		public virtual Reference findReference(Reference
 			 @ref)
 		{
-			com.brashmonkey.spriter.file.Reference[] refs = this.getRefs();
-			foreach (com.brashmonkey.spriter.file.Reference r in refs)
+			Reference[] refs = this.getRefs();
+			foreach (Reference r in refs)
 			{
 				if (r.Equals(@ref))
 				{
@@ -83,20 +83,20 @@ namespace com.brashmonkey.spriter.file
 		/// <remarks>Searches for all files in the given folder name.</remarks>
 		/// <param name="folderName">folder to search in</param>
 		/// <returns>array of all references which the given folder contains.</returns>
-		public virtual com.brashmonkey.spriter.file.Reference[] findReferencesByFolderName
-			(string folderName)
+		public virtual Reference[] findReferencesByFolderName(string folderName)
 		{
-			com.brashmonkey.spriter.file.Reference[] refs = this.getRefs();
-			System.Collections.Generic.List<com.brashmonkey.spriter.file.Reference> files = new 
-				System.Collections.Generic.List<com.brashmonkey.spriter.file.Reference>();
-			foreach (com.brashmonkey.spriter.file.Reference @ref in refs)
+			Reference[] refs = this.getRefs();
+			List<Reference> files = new List<Reference>();
+			foreach (Reference @ref in refs)
 			{
 				if (@ref.folderName.Equals(folderName))
 				{
 					files.Add(@ref);
 				}
 			}
-			return Sharpen.Collections.ToArray(files, refs);
+            refs = new Reference[files.Count];
+            files.CopyTo(refs, 0);
+            return refs;
 		}
 
 		/// <summary>Searches for a reference with the given filename and returns it, if it exists.
@@ -106,11 +106,11 @@ namespace com.brashmonkey.spriter.file
 		/// <param name="fileName">name of the file (complete name with folder name and extension)
 		/// 	</param>
 		/// <returns>reference with given filename or null if not found</returns>
-		public virtual com.brashmonkey.spriter.file.Reference findReferenceByFileName(string
+		public virtual Reference findReferenceByFileName(string
 			 fileName)
 		{
-			com.brashmonkey.spriter.file.Reference[] refs = this.getRefs();
-			foreach (com.brashmonkey.spriter.file.Reference @ref in refs)
+			Reference[] refs = this.getRefs();
+			foreach (Reference @ref in refs)
 			{
 				if (@ref.fileName.Equals(fileName))
 				{
@@ -129,17 +129,17 @@ namespace com.brashmonkey.spriter.file
 		/// <param name="withoutExtension">indicates whether to compare with the file extension or not. false means, the extension will be compared, too.
 		/// 	</param>
 		/// <returns>the right reference to the file or null if not found</returns>
-		public virtual com.brashmonkey.spriter.file.Reference findReferenceByFileNameAndFolder
+		public virtual Reference findReferenceByFileNameAndFolder
 			(string fileName, string folderName, bool withoutExtension)
 		{
-			com.brashmonkey.spriter.file.Reference[] refs = this.findReferencesByFolderName(folderName
+			Reference[] refs = this.findReferencesByFolderName(folderName
 				);
-			foreach (com.brashmonkey.spriter.file.Reference @ref in refs)
+			foreach (Reference @ref in refs)
 			{
-				string file = @ref.fileName.ReplaceAll(folderName + "/", string.Empty);
+				string file = @ref.fileName.Replace(folderName + "/", string.Empty);
 				if (withoutExtension)
 				{
-					file = file.ReplaceAll(".png", string.Empty);
+					file = file.Replace(".png", string.Empty);
 				}
 				if (file.Equals(fileName))
 				{
